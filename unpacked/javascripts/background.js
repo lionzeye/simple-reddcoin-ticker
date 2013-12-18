@@ -1,24 +1,38 @@
 (function() {
-
     /**
-     * Extension Config 
+     * Extension Config && Default Values
      * @type {Object}
      */
-    var config = {
+    var defaultVals = {
         'refresh_time': 15000,
-        'markets': {
-            'btcchina': 'https://data.btcchina.com/data/ticker',
-            'mtgox': 'https://data.mtgox.com/api/2/BTCUSD/money/ticker'
+        'default_market': 'btcchina'
+    };
+
+    var markets = {
+        'btcchina': {
+            url: 'https://data.btcchina.com/data/ticker',
+            key: 'ticker.last'
+        },
+        'mtgox': {
+            url: 'https://data.mtgox.com/api/2/BTCUSD/money/ticker',
+            key: 'data.last_local.value'
         }
     };
 
+    var config = {};
+
     var SBT = {
 
-        // globalIntervalId: null,
-
         init: function () {
+            this.resetCurrentVals();
             this.startRequesting();
             this.bindEvents();
+        },
+
+        resetCurrentVals: function () {
+            for (var key in defaultVals) {
+                config[key] = localStorage[key] || defaultVals[key];
+            }
         },
 
         bindEvents: function() {
@@ -31,7 +45,7 @@
         handleSingleRequestResult: function (raw) {
             try {
                 var res = JSON.parse(raw);
-                this.updateLatestInfo(res);
+                this.updateLatestInfo(this.getPriceInfo(res));
             } catch (e) {
                 // exception
             }
@@ -56,25 +70,33 @@
             this.handleSingleRequest();
             this.globalIntervalId = window.setInterval(function () {
                 self.handleSingleRequest();
+                self.resetCurrentVals();
             }, config.refresh_time);
         },
 
         handleSingleRequest: function () {
             var req = new XMLHttpRequest(),
-                url = config.markets.btcchina;
+                url = markets[config.default_market].url;
             
             req.open("GET", url, true);
             req.onreadystatechange = this.ReadyStateChange(req, this, 'handleSingleRequestResult');
             req.send(null);
         },
 
-        updateLatestInfo: function (res) {
-            var price = 0;
+        getPriceInfo: function (res) {
+            var price = this.getDescendantProp(res, markets[config.default_market].key);
+            
+            return new Number(price).toFixed(0);
+        },
 
-            if (!isNaN(parseInt(res.ticker.last))) {
-                price = res.ticker.last;
-            }
+        getDescendantProp: function (res, desc) {
+            var arr = desc.split(".");
+            while(arr.length && (res = res[arr.shift()]));
+            return res;
+        },
 
+        updateLatestInfo: function (price) {
+            
             this.updateBadge(price);
         },
 
