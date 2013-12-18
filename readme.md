@@ -3,6 +3,7 @@
 ### Markets:
 
 - BTCChina 
+- Mt.Gox
 
 ### Usage:
 
