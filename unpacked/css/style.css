@@ -7,4 +7,5 @@ body { padding-top: 30px; padding-bottom: 20px; }
 .header { border-bottom: 1px solid #E5E5E5; }
 .radio-w120 { width: 120px; }
 
-#formOptions { padding-top: 20px; }
+#formInfo { margin-top: 20px; margin-bottom: 0; }
+#formOptions { margin-top: 20px; }

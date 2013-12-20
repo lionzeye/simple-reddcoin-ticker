@@ -85,8 +85,10 @@
 
         getPriceInfo: function (res) {
             var price = this.getDescendantProp(res, markets[config.default_market].key);
-            
-            return new Number(price).toFixed(0);
+            price = (!price || isNaN(price)) 
+                  ? 0
+                  : new Number(price).toFixed(0);
+            return price;
         },
 
         getDescendantProp: function (res, desc) {

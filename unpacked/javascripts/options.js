@@ -8,6 +8,11 @@
         'default_market': 'mtgox'
     };
 
+    var markets = [
+        'btcchina',
+        'mtgox'
+    ];
+
     var OptionsPage = {
 
         init: function () {
@@ -15,6 +20,10 @@
             this.bindSaveBtnEvent();
         },
 
+        /**
+         * Get current settings from localStorage
+         * @return {[object]} 
+         */
         getCurrentVals: function () {
             var currentVals = {};
             for (var key in defaultVals) {
@@ -52,29 +61,91 @@
             }
         },
 
+        /**
+         * First function to be called after clicked the "Save Options" button
+         * @return {[type]} [description]
+         */
         bindSaveBtnEvent: function () {
             var btnSaveOptions = $('#btnSaveOptions'),
                 self = this;
 
             btnSaveOptions.click(function () {
-                self.validateFormOptionsData() && self.handleFormOptionsSubmit();
-                alert('Options Saved!');
+                self.showFormInfoAlert(self.handleFormOptionsSubmit());
                 return false;
             });
         },
 
-        validateFormOptionsData: function () {
-            // validate form data, later on.
-            return true;
+        /**
+         * Showing message according to the user input
+         * @param  {[object]} args [message config, must has property: type, msg]
+         * @return {[type]}      [description]
+         */
+        showFormInfoAlert: function (args) {
+            $('#formInfo').removeClass()
+                          .addClass('alert alert-' + args.type)
+                          .html(args.msg)
+                          .show();
         },
 
+        /**
+         * Handle form submit, returns message args to show (with validation)
+         * @return {[type]} [description]
+         */
         handleFormOptionsSubmit: function () {
             var elemForm = $('#formOptions'),
-                formData = elemForm.serializeArray();
+                formData = elemForm.serializeArray(),
+                res = { 
+                    type: 'danger', 
+                    msg: 'Exception' 
+                },
+                requirements = { 
+                    default_market: {
+                        required: true,
+                        dataType: 'string',
+                        dataList: markets,
+                        msg: 'You should selected one of the following market as default: ' + markets.join(', ')
+                    },
+                    refresh_time: {
+                        required: true,
+                        dataType: 'number',
+                        dataRange: true,
+                        dataRangeMin: 1000,
+                        dataRangeMax: 3000000,
+                        msg: 'You should set the refresh time between 1000ms and 3000000ms. '
+                    }
+                };
 
             for (var i = formData.length - 1; i >= 0; i--) {
-                localStorage[formData[i].name] = formData[i].value;
+                var inputName = formData[i].name,
+                    inputVal = formData[i].value,
+                    flag = false,
+                    requirement = requirements[inputName];
+
+                if (!requirement) {
+                    break;
+                }
+
+                if (!!requirement.dataList) {
+                    flag = $.inArray(inputVal, requirement.dataList);
+                } else if (!!requirement.dataRange) {
+                    flag = (parseInt(inputVal) >= requirement.dataRangeMin && parseInt(inputVal) <= requirement.dataRangeMax);
+                }
+
+                if (flag === false) {
+                    res.msg = requirement.msg;
+                    break;
+                }
+
+                localStorage[inputName] = inputVal;
+                res.flag = true;
             };
+
+            if (!!res.flag) {
+                res.type = 'success';
+                res.msg = 'Options Saved!';
+            }
+
+            return res;
         }
     };
 
