@@ -9,8 +9,10 @@
     };
 
     var markets = [
+        'mtgox',
+        'bitstamp',
         'btcchina',
-        'mtgox'
+        'okcoin'
     ];
 
     var OptionsPage = {

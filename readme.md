@@ -2,13 +2,15 @@
 
 ### Markets:
 
-- BTCChina 
 - Mt.Gox
+- Bitstamp
+- BTCChina 
+- OKCoin
 
 ### Usage:
 
 1. Open chrome://extensions/ with your Chrome Browser.
-2. Click "Load Unpacked Extension..."
+2. Enable Developer Mode, Click "Load Unpacked Extension..."
 3. Select the "unpacked" folder in this repository.
 4. The price will show as badge over the extension icon, refresh in every 15 seconds.
 

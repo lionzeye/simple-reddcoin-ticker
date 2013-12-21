@@ -5,17 +5,25 @@
      */
     var defaultVals = {
         'refresh_time': 15000,
-        'default_market': 'btcchina'
+        'default_market': 'mtgox'
     };
 
     var markets = {
+        'mtgox': {
+            url: 'https://data.mtgox.com/api/2/BTCUSD/money/ticker',
+            key: 'data.last_local.value'
+        },
+        'bitstamp': {
+            url: 'https://www.bitstamp.net/api/ticker/',
+            key: 'last'
+        },
         'btcchina': {
             url: 'https://data.btcchina.com/data/ticker',
             key: 'ticker.last'
         },
-        'mtgox': {
-            url: 'https://data.mtgox.com/api/2/BTCUSD/money/ticker',
-            key: 'data.last_local.value'
+        'okcoin': {
+            url: 'https://www.okcoin.com/api/ticker.do',
+            key: 'ticker.last'
         }
     };
 
@@ -77,7 +85,6 @@
         handleSingleRequest: function () {
             var req = new XMLHttpRequest(),
                 url = markets[config.default_market].url;
-            
             req.open("GET", url, true);
             req.onreadystatechange = this.ReadyStateChange(req, this, 'handleSingleRequestResult');
             req.send(null);
