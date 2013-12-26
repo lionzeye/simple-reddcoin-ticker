@@ -1,5 +1,9 @@
 ## A simple Chrome Extension showing current Bitcoin price ticker.
 
+### Screenshot:
+
+![Screenshot of Simple Bitcoin Ticker](screenshot.png)
+
 ### Markets:
 
 - Mt.Gox
