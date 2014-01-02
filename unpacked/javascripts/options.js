@@ -105,7 +105,7 @@
                         required: true,
                         dataType: 'string',
                         dataList: markets,
-                        msg: 'You should selected one of the following market as default: ' + markets.join(', ')
+                        msg: 'You should select one of the following market as default: ' + markets.join(', ')
                     },
                     refresh_time: {
                         required: true,
@@ -127,10 +127,16 @@
                     break;
                 }
 
-                if (!!requirement.dataList) {
-                    flag = $.inArray(inputVal, requirement.dataList);
-                } else if (!!requirement.dataRange) {
-                    flag = (parseInt(inputVal) >= requirement.dataRangeMin && parseInt(inputVal) <= requirement.dataRangeMax);
+                switch (requirement.dataType) {
+                    case 'string':
+                        flag = $.inArray(inputVal, requirement.dataList);
+                        break;
+                    case 'number':
+                        flag = (parseInt(inputVal) >= requirement.dataRangeMin && 
+                                parseInt(inputVal) <= requirement.dataRangeMax);
+                        break;
+                    default:
+                        break;
                 }
 
                 if (flag === false) {
