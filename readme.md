@@ -10,6 +10,8 @@
 - Bitstamp
 - BTCChina 
 - OKCoin
+- CHBTC
+- FXBTC
 
 ### Usage:
 
