@@ -20,6 +20,8 @@
         "https://data.mtgox.com/",
         "https://data.btcchina.com/",
         "https://www.bitstamp.net/",
-        "https://www.okcoin.com/"
+        "https://www.okcoin.com/",
+        "http://api.chbtc.com/",
+        "https://data.fxbtc.com/"
     ]
 }

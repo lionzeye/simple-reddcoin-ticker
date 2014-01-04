@@ -12,7 +12,9 @@
         'mtgox',
         'bitstamp',
         'btcchina',
-        'okcoin'
+        'okcoin',
+        'chbtc',
+        'fxbtc'
     ];
 
     var OptionsPage = {

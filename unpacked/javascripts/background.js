@@ -24,6 +24,14 @@
         'okcoin': {
             url: 'https://www.okcoin.com/api/ticker.do',
             key: 'ticker.last'
+        },
+        'chbtc': {
+            url: 'http://api.chbtc.com/data/ticker',
+            key: 'ticker.last'
+        },
+        'fxbtc': {
+            url: 'https://data.fxbtc.com/api?op=query_ticker&symbol=btc_cny',
+            key: 'ticker.last_rate'
         }
     };
 
