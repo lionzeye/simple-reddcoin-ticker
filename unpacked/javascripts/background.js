@@ -26,7 +26,7 @@
             key: 'ticker.last'
         },
         'huobi': {
-            url: 'http://www.btc123.com/e/interfaces/tickers.js?type=huobiTicker&s=46702',
+            url: 'http://www.btc123.com/e/interfaces/tickers.js?type=huobiTicker',
             key: 'ticker.last'
         },
         'okcoin': {
