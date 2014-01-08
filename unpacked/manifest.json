@@ -22,6 +22,8 @@
         "https://www.bitstamp.net/",
         "https://www.okcoin.com/",
         "http://api.chbtc.com/",
-        "https://data.fxbtc.com/"
+        "https://data.fxbtc.com/",
+        "https://btc-e.com/",
+        "http://www.btc123.com/e/interfaces/tickers.js?type=huobiTicker&s=46702"
     ]
 }

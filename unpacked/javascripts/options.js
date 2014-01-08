@@ -14,7 +14,9 @@
         'btcchina',
         'okcoin',
         'chbtc',
-        'fxbtc'
+        'fxbtc',
+        'huobi',
+        'btce'
     ];
 
     var OptionsPage = {

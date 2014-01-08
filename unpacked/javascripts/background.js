@@ -13,12 +13,20 @@
             url: 'https://data.mtgox.com/api/2/BTCUSD/money/ticker',
             key: 'data.last_local.value'
         },
+        'btce': {
+            url: 'https://btc-e.com/api/2/btc_usd/ticker',
+            key: 'ticker.last'
+        },
         'bitstamp': {
             url: 'https://www.bitstamp.net/api/ticker/',
             key: 'last'
         },
         'btcchina': {
             url: 'https://data.btcchina.com/data/ticker',
+            key: 'ticker.last'
+        },
+        'huobi': {
+            url: 'http://www.btc123.com/e/interfaces/tickers.js?type=huobiTicker&s=46702',
             key: 'ticker.last'
         },
         'okcoin': {

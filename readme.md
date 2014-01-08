@@ -7,8 +7,10 @@
 ### Markets:
 
 - Mt.Gox
+- BTC-E
 - Bitstamp
 - BTCChina 
+- Huobi
 - OKCoin
 - CHBTC
 - FXBTC
