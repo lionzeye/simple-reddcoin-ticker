@@ -77,7 +77,7 @@
                 }
 
                 var res = JSON.parse(jsonString);
-                console.log(res);
+                
                 this.updateLatestInfo(this.getPriceInfo(res));   
             } catch (e) {
                 // exception
