@@ -5,11 +5,10 @@
      */
     var defaultVals = {
         'refresh_time': 15000,
-        'default_market': 'mtgox'
+        'default_market': 'huobi'
     };
 
     var markets = [
-        'mtgox',
         'bitstamp',
         'btcchina',
         'okcoin',

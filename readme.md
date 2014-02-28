@@ -6,7 +6,6 @@
 
 ### Markets:
 
-- Mt.Gox
 - BTC-E
 - Bitstamp
 - BTCChina 

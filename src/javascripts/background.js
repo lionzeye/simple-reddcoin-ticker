@@ -5,14 +5,10 @@
      */
     var defaultVals = {
         'refresh_time': 15000,
-        'default_market': 'mtgox'
+        'default_market': 'huobi'
     };
 
     var markets = {
-        'mtgox': {
-            url: 'https://data.mtgox.com/api/2/BTCUSD/money/ticker',
-            key: 'data.last_local.value'
-        },
         'btce': {
             url: 'https://btc-e.com/api/2/btc_usd/ticker',
             key: 'ticker.last'
