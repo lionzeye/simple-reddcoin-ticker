@@ -12,7 +12,6 @@
 - Huobi
 - OKCoin
 - CHBTC
-- FXBTC
 
 ### Usage:
 

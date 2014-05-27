@@ -13,7 +13,6 @@
         'btcchina',
         'okcoin',
         'chbtc',
-        'fxbtc',
         'huobi',
         'btce'
     ];
