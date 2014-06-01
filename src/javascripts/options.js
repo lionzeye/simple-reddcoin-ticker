@@ -148,7 +148,7 @@
 
                 localStorage[inputName] = inputVal;
                 res.flag = true;
-            };
+            }
 
             if (!!res.flag) {
                 res.type = 'success';

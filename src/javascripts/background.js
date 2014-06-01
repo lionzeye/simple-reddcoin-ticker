@@ -91,7 +91,7 @@
                 if (obj.readyState == 4 && obj.status == 200) { 
                     funcScope[funcName](obj.responseText); 
                 }
-            }
+            };
         },
 
         startRequesting: function () {
@@ -113,9 +113,8 @@
 
         getPriceInfo: function (res) {
             var price = this.getDescendantProp(res, markets[config.default_market].key);
-            price = (!price || isNaN(price)) 
-                  ? 0
-                  : new Number(price).toFixed(0);
+            price = (!price || isNaN(price)) ? 
+                    0 : price.toFixed(0);
             return price;
         },
 
