@@ -32,6 +32,18 @@
         'chbtc': {
             url: 'http://api.chbtc.com/data/ticker',
             key: 'ticker.last'
+        },
+        '796': {
+            url: 'http://api.796.com/v3/futures/ticker.html?type=weekly',
+            key: 'ticker.last'
+        },
+        'btctrade': {
+            url: 'http://www.btctrade.com/api/ticker',
+            key: 'last'
+        },
+        'btc100': {
+            url: 'https://www.btc100.org/apidata/getdata.json',
+            key: '0.bit'
         }
     };
 
@@ -114,7 +126,7 @@
         getPriceInfo: function (res) {
             var price = this.getDescendantProp(res, markets[config.default_market].key);
             price = (!price || isNaN(price)) ? 
-                    0 : price.toFixed(0);
+                    0 : parseFloat(price).toFixed(0);
             return price;
         },
 
@@ -125,7 +137,6 @@
         },
 
         updateLatestInfo: function (price) {
-            
             this.updateBadge(price);
         },
 

@@ -14,7 +14,10 @@
         'okcoin',
         'chbtc',
         'huobi',
-        'btce'
+        'btce',
+        '796',
+        'btctrade',
+        'btc100'
     ];
 
     var OptionsPage = {

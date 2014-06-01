@@ -7,11 +7,14 @@
 ### Markets:
  
 - Huobi
+- 796 Xchange
 - BTC-E
 - Bitstamp
 - BTCChina
 - OKCoin
 - CHBTC
+- BTCTrade
+- BTC100
 
 ### Usage:
 
