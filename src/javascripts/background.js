@@ -44,6 +44,10 @@
         'btc100': {
             url: 'https://www.btc100.org/apidata/getdata.json',
             key: '0.bit'
+        },
+        'bitfinex': {
+            url: 'https://api.bitfinex.com/v1/pubticker/btcusd',
+            key: 'last_price'
         }
     };
 

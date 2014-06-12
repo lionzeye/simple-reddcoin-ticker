@@ -17,7 +17,8 @@
         'btce',
         '796',
         'btctrade',
-        'btc100'
+        'btc100',
+        'bitfinex'
     ];
 
     var OptionsPage = {

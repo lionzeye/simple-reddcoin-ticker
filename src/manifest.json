@@ -25,6 +25,7 @@
         "https://detail.huobi.com/",
         "http://api.796.com/",
         "http://www.btctrade.com/",
-        "https://www.btc100.org/"
+        "https://www.btc100.org/",
+        "https://api.bitfinex.com/"
     ]
 }

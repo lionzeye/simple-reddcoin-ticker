@@ -9,6 +9,7 @@
 - Huobi
 - 796 Xchange
 - BTC-E
+- Bitfinex
 - Bitstamp
 - BTCChina
 - OKCoin
