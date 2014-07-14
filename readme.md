@@ -1,21 +1,11 @@
-## A simple Chrome Extension showing current Bitcoin price ticker.
-
-### Screenshot:
-
-![Screenshot of Simple Bitcoin Ticker](screenshot.png)
+## A simple Chrome Extension: a ticker showing the current Reddcoin-price.
 
 ### Markets:
  
-- Huobi
-- 796 Xchange
-- BTC-E
-- Bitfinex
-- Bitstamp
-- BTCChina
-- OKCoin
-- CHBTC
-- BTCTrade
-- BTC100
+- Cryptsy
+- Mintpal
+- Poloniex
+- Bittrex
 
 ### Usage:
 
