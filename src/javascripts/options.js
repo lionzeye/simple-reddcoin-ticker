@@ -5,20 +5,14 @@
      */
     var defaultVals = {
         'refresh_time': 15000,
-        'default_market': 'huobi'
+        'default_market': 'cryptsy'
     };
 
     var markets = [
-        'bitstamp',
-        'btcchina',
-        'okcoin',
-        'chbtc',
-        'huobi',
-        'btce',
-        '796',
-        'btctrade',
-        'btc100',
-        'bitfinex'
+        'cryptsy',
+        'poloniex',
+        'mintpal',
+        'bittrex'
     ];
 
     var OptionsPage = {
@@ -111,7 +105,7 @@
                         required: true,
                         dataType: 'string',
                         dataList: markets,
-                        msg: 'You should select one of the following market as default: ' + markets.join(', ')
+                        msg: 'You should select one of the following markets as default: ' + markets.join(', ')
                     },
                     refresh_time: {
                         required: true,
