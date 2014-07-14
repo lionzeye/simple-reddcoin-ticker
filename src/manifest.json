@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
 
-    "name": "Simple Bitcoin Ticker",
-    "description": "This extension shows latest price ticker of popular BTC trading markets.",
-    "version": "0.2",
+    "name": "Simple Reddcoin Ticker",
+    "description": "This extension shows latest price ticker of popular RDD trading markets.",
+    "version": "0.1",
 
     "browser_action": {
         "default_icon": "images/icon.png"
@@ -14,18 +14,5 @@
         "page": "background.html"
     },
 
-    "options_page": "options.html",
-
-    "permissions": [
-        "https://data.btcchina.com/",
-        "https://www.bitstamp.net/",
-        "https://www.okcoin.com/",
-        "http://api.chbtc.com/",
-        "https://btc-e.com/",
-        "https://detail.huobi.com/",
-        "http://api.796.com/",
-        "http://www.btctrade.com/",
-        "https://www.btc100.org/",
-        "https://api.bitfinex.com/"
-    ]
+    "options_page": "options.html"
 }
