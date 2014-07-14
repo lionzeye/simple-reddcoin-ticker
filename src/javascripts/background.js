@@ -5,49 +5,25 @@
      */
     var defaultVals = {
         'refresh_time': 15000,
-        'default_market': 'huobi'
+        'default_market': 'cryptsy'
     };
 
     var markets = {
-        'btce': {
-            url: 'https://btc-e.com/api/2/btc_usd/ticker',
-            key: 'ticker.last'
+        'cryptsy': {
+            url: 'http://json2jsonp.com/?url=http://pubapi.cryptsy.com/api.php?method=singlemarketdata%26marketid=169&callback=cbfunc',
+            key: 'return.markets.RDD.lasttradeprice'
         },
-        'bitstamp': {
-            url: 'https://www.bitstamp.net/api/ticker/',
-            key: 'last'
+        'poloniex': {
+            url: 'http://json2jsonp.com/?url=https://poloniex.com/public?command=returnTicker&callback=cbfunc',
+            key: 'BTC_REDD.last'
         },
-        'btcchina': {
-            url: 'https://data.btcchina.com/data/ticker',
-            key: 'ticker.last'
-        },
-        'huobi': {
-            url: 'https://detail.huobi.com/staticmarket/detail.html?jsoncallback=',
-            key: 'p_new'
-        },
-        'okcoin': {
-            url: 'https://www.okcoin.com/api/ticker.do',
-            key: 'ticker.last'
-        },
-        'chbtc': {
-            url: 'http://api.chbtc.com/data/ticker',
-            key: 'ticker.last'
-        },
-        '796': {
-            url: 'http://api.796.com/v3/futures/ticker.html?type=weekly',
-            key: 'ticker.last'
-        },
-        'btctrade': {
-            url: 'http://www.btctrade.com/api/ticker',
-            key: 'last'
-        },
-        'btc100': {
-            url: 'https://www.btc100.org/apidata/getdata.json',
-            key: '0.bit'
-        },
-        'bitfinex': {
-            url: 'https://api.bitfinex.com/v1/pubticker/btcusd',
+        'mintpal': {
+            url: 'http://json2jsonp.com/?url=https://api.mintpal.com/v1/market/stats/RDD/BTC&callback=cbfunc',
             key: 'last_price'
+        },
+        'bittrex': {
+            url: 'http://json2jsonp.com/?url=https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-rdd&callback=cbfunc',
+            key: 'Last'
         }
     };
 
@@ -77,12 +53,7 @@
         handleSingleRequestResult: function (raw) {
             try {
                 var jsonString = '';
-
-                if (config.default_market == 'huobi') {
-                    jsonString = this.handleHuobiTicker(raw);
-                } else {
-                    jsonString = raw;
-                }
+                jsonString = this.handleJSONP(raw);
 
                 var res = JSON.parse(jsonString);
                 
@@ -92,8 +63,14 @@
             }
         },
 
-        handleHuobiTicker: function (raw) {
-            return raw.substring(12, raw.length - 1);
+        handleJSONP: function (raw) {
+            if(config.default_market == 'mintpal') {
+            return raw.substring(8, raw.length - 2);
+            }
+            else if(config.default_market == 'bittrex') {
+            return raw.substring(46, raw.length - 3);
+            }
+            return raw.substring(7, raw.length - 1);
         },
 
         restartRequesting: function () {
@@ -130,7 +107,7 @@
         getPriceInfo: function (res) {
             var price = this.getDescendantProp(res, markets[config.default_market].key);
             price = (!price || isNaN(price)) ? 
-                    0 : parseFloat(price).toFixed(0);
+                    0 : parseFloat(Math.round(price * 100000000));
             return price;
         },
 
@@ -146,7 +123,7 @@
 
         updateBadge: function (price) {
             chrome.browserAction.setBadgeText({
-                text: price
+                text: '' + price
             });
         }
     };
