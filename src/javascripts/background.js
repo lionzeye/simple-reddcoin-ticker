@@ -105,9 +105,24 @@
         },
 
         getPriceInfo: function (res) {
-            var price = this.getDescendantProp(res, markets[config.default_market].key);
-            price = (!price || isNaN(price)) ? 
+        		var oldprice = localStorage.price;
+        		
+        		var color = "";
+        		var price = this.getDescendantProp(res, markets[config.default_market].key);
+        		price = (!price || isNaN(price)) ? 
                     0 : parseFloat(Math.round(price * 100000000));
+        		localStorage.price=price;
+                    
+        		if(oldprice > price) {
+        			color = {color:[255,0,0,255]};
+        		}
+        		else if(oldprice < price) {
+        			color = {color:[0,186,0,255]};
+        		}
+        		else{
+        			color = {color:[75,75,75,255]};
+        		}
+            chrome.browserAction.setBadgeBackgroundColor(color);
             return price;
         },
 
