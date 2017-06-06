@@ -1,10 +1,7 @@
 ## A simple Chrome Extension: a ticker showing the current Reddcoin-price.
 
 ### Markets:
- 
-- Cryptsy
-- Mintpal
-- Poloniex
+
 - Bittrex
 
 ### Usage:
