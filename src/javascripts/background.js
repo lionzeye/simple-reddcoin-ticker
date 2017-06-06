@@ -10,7 +10,7 @@
 
     var markets = {
         'bittrex': {
-            url: 'http://jsonp.herokuapp.com/?callback=cdfunc&url=https%3A%2F%2Fbittrex.com%2Fapi%2Fv1.1%2Fpublic%2Fgetmarketsummary%3Fmarket%3Dbtc-rdd',
+            url: 'http://jsonp.herokuapp.com/?callback=cbfunc&url=https%3A%2F%2Fbittrex.com%2Fapi%2Fv1.1%2Fpublic%2Fgetmarketsummary%3Fmarket%3Dbtc-rdd',
             key: 'Last'
         }
     };
