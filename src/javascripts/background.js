@@ -5,24 +5,12 @@
      */
     var defaultVals = {
         'refresh_time': 15000,
-        'default_market': 'cryptsy'
+        'default_market': 'bittrex'
     };
 
     var markets = {
-        'cryptsy': {
-            url: 'http://json2jsonp.com/?url=http://pubapi.cryptsy.com/api.php?method=singlemarketdata%26marketid=169&callback=cbfunc',
-            key: 'return.markets.RDD.lasttradeprice'
-        },
-        'poloniex': {
-            url: 'http://json2jsonp.com/?url=https://poloniex.com/public?command=returnTicker&callback=cbfunc',
-            key: 'BTC_REDD.last'
-        },
-        'mintpal': {
-            url: 'http://json2jsonp.com/?url=https://api.mintpal.com/v1/market/stats/RDD/BTC&callback=cbfunc',
-            key: 'last_price'
-        },
         'bittrex': {
-            url: 'http://json2jsonp.com/?url=https://bittrex.com/api/v1.1/public/getmarketsummary?market=btc-rdd&callback=cbfunc',
+            url: 'http://jsonp.herokuapp.com/?callback=cdfunc&url=https%3A%2F%2Fbittrex.com%2Fapi%2Fv1.1%2Fpublic%2Fgetmarketsummary%3Fmarket%3Dbtc-rdd',
             key: 'Last'
         }
     };
