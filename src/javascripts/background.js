@@ -52,13 +52,7 @@
         },
 
         handleJSONP: function (raw) {
-            if(config.default_market == 'mintpal') {
-            return raw.substring(8, raw.length - 2);
-            }
-            else if(config.default_market == 'bittrex') {
-            return raw.substring(46, raw.length - 3);
-            }
-            return raw.substring(7, raw.length - 1);
+            return raw.substring(46, raw.length - 4);
         },
 
         restartRequesting: function () {
