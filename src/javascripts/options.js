@@ -5,13 +5,10 @@
      */
     var defaultVals = {
         'refresh_time': 15000,
-        'default_market': 'cryptsy'
+        'default_market': 'bittrex'
     };
 
     var markets = [
-        'cryptsy',
-        'poloniex',
-        'mintpal',
         'bittrex'
     ];
 
